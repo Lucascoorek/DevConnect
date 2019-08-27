@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://lukascoorek:lukascoorek@devconnect-9vmk3.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://lukascoorek:lukascoorek@devconnect-9vmk3.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "ILoveJezus"
 }
