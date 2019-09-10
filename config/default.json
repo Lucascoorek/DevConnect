@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://lukascoorek:lukascoorek@devconnect-9vmk3.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "ILoveJezus"
+  "jwtSecret": "ILoveJezus",
+  "githubClientId": "fc1fb1901ed05ac2ad56",
+  "githubClientSecret": "d901305c2eb1dcc017cfd799052217a8f6a7587b"
 }
