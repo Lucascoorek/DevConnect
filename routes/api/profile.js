@@ -137,7 +137,7 @@ router.delete('/', auth, async (req, res) => {
     // @todo - remove users posts
 
     // Remove profile
-    await Profile.findOneAndDelete({ user: req.user.id });
+    await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user
     await User.findOneAndRemove({ _id: req.user.id });
     res.json('User deleted');
@@ -209,6 +209,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
       { $pull: { experience: { _id: req.params.exp_id } } },
       { new: true }
     );
+    await profile.save();
     res.json(profile);
   } catch (error) {
     console.error(error.message);
