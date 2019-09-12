@@ -184,8 +184,10 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     if (comment.user.toString() !== req.user.id)
       return res.status(403).json({ msg: 'User not authorized' });
     post = await Post.findOneAndUpdate(
-      { _id: req.params.id },
-      { $pull: { comments: { _id: req.params.comment_id } } },
+      { _id: post.id },
+      {
+        $pull: { comments: { _id: req.params.comment_id, user: req.user.id } }
+      },
       { new: true }
     );
     await post.save();
