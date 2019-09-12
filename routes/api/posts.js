@@ -118,7 +118,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
     )
       return res.status(400).json({ msg: 'Post has not yet been liked' });
     post = await Post.findOneAndUpdate(
-      { _id: req.params.id },
+      { _id: post.id },
       { $pull: { likes: { user: req.user.id } } },
       { new: true }
     );
