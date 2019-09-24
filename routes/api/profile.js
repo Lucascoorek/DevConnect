@@ -68,11 +68,11 @@ router.post(
     // if (website) profileFields.website = website;
     // if (location) profileFields.location = location;
     // if (bio) profileFields.bio = bio;
-    // if (status) profileFields.status = status;
+    if (status) profileFields.status = status;
     // if (githubusername) profileFields.githubusername = githubusername;
     if (skills)
       profileFields.skills = skills.split(',').map(skill => skill.trim());
-    profileFields.status = status || '';
+    // profileFields.status = status || '';
     profileFields.githubusername = githubusername || '';
     profileFields.company = company || '';
     profileFields.website = website || '';
