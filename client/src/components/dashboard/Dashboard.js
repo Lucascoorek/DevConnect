@@ -10,12 +10,14 @@ import Education from './Education';
 
 const Dashboard = ({
   getCurrentProfile,
+
   deleteAccount,
   auth: { user },
   profile: { profile, loading }
 }) => {
   useEffect(() => {
     getCurrentProfile();
+
     //eslint-disable-next-line
   }, []);
   return loading && profile === null ? (
