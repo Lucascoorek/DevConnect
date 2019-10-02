@@ -4,7 +4,8 @@ import {
   POST_ERROR,
   UPDATE_LIKES,
   DELETE_POST,
-  ADD_POST
+  ADD_POST,
+  GET_POST
 } from './types';
 import { setAlert } from '../actions/alert';
 
@@ -79,13 +80,30 @@ export const addPost = text => async dispatch => {
       'Content-Type': 'application/json'
     }
   };
+  const body = JSON.stringify({ text });
   try {
-    const res = await axios.post('/api/posts', text, config);
+    const res = await axios.post('/api/posts', body, config);
     dispatch({
       type: ADD_POST,
       payload: res.data
     });
     dispatch(setAlert('Post added', 'success'));
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+};
+
+// Get Post
+export const getPost = id => async dispatch => {
+  try {
+    const res = await axios.get(`/api/posts/${id}`);
+    dispatch({
+      type: GET_POST,
+      payload: res.data
+    });
   } catch (error) {
     dispatch({
       type: POST_ERROR,

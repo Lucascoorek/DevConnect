@@ -14,7 +14,7 @@ const PostForm = ({ addPost }) => {
         className='form my-1'
         onSubmit={e => {
           e.preventDefault();
-          addPost({ text });
+          addPost(text);
           setText('');
         }}>
         <textarea
