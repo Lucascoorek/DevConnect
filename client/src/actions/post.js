@@ -6,7 +6,8 @@ import {
   DELETE_POST,
   ADD_POST,
   GET_POST,
-  ADD_COMMENT
+  ADD_COMMENT,
+  REMOVE_COMMENT
 } from './types';
 import { setAlert } from '../actions/alert';
 
@@ -128,6 +129,22 @@ export const addComment = (postId, text) => async dispatch => {
       payload: res.data
     });
     dispatch(setAlert('Comment added', 'success'));
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+};
+// Delete comment
+export const deleteComment = (postId, commentId) => async dispatch => {
+  try {
+    const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+    dispatch({
+      type: REMOVE_COMMENT,
+      payload: res.data
+    });
+    dispatch(setAlert('Comment deleted', 'success'));
   } catch (error) {
     dispatch({
       type: POST_ERROR,
