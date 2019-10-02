@@ -5,7 +5,8 @@ import {
   UPDATE_LIKES,
   DELETE_POST,
   ADD_POST,
-  GET_POST
+  GET_POST,
+  ADD_COMMENT
 } from './types';
 import { setAlert } from '../actions/alert';
 
@@ -104,6 +105,29 @@ export const getPost = id => async dispatch => {
       type: GET_POST,
       payload: res.data
     });
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+};
+
+// Create comment
+export const addComment = (postId, text) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  const body = JSON.stringify({ text });
+  try {
+    const res = await axios.post(`/api/posts/comment/${postId}`, body, config);
+    dispatch({
+      type: ADD_COMMENT,
+      payload: res.data
+    });
+    dispatch(setAlert('Comment added', 'success'));
   } catch (error) {
     dispatch({
       type: POST_ERROR,
