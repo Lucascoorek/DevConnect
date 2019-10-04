@@ -4,7 +4,7 @@
 
 ---
 
-Fullstack social app where you can connect to oter devs.
+Fullstack social app where you can connect to other devs.
 
 ---
 
