@@ -1,6 +1,6 @@
 {
-  "mongoURI": "mongodb+srv://KasiaPiwinicka:UB2Ls2D2KpnaGC26@devconnectprod-hyakw.mongodb.net/admin?retryWrites=true&w=majority",
-  "jwtSecret": "JesusIsAlive",
+  "mongoURI": "mongodb+srv://lukascoorek:kasiapiwnicka@devconnectprod-hyakw.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "JezusIsAlive",
   "githubClientId": "fc1fb1901ed05ac2ad56",
   "githubClientSecret": "d901305c2eb1dcc017cfd799052217a8f6a7587b"
 }
